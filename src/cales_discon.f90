@@ -38,17 +38,17 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
   integer :: markers(nx+1,nz+1)
   double precision :: pt0x,pt0z,pt1x,pt1z
 
-  integer :: nDiscon,lengthDiscon ! number of discontinuities
+  integer :: nDiscon,lengthDiscon                                 ! number of discontinuities
   double precision :: dscr(1:2,1:lengthDiscon,1:nDiscon)
 
-  double precision :: dDiagonal,dDiagonal2 ! sqrt(dx^2+dz^2)
-  double precision :: eps ! zero tolerance
+  double precision :: dDiagonal,dDiagonal2                        ! sqrt(dx^2+dz^2)
+  double precision :: eps                                         ! zero tolerance
 
-  double precision :: xi,zi,distan2 ! intersecion coordinates
+  double precision :: xi,zi,distan2                               ! intersecion coordinates
   integer :: iLengthDiscon,iDiscon,iInterSection(1:2),err
   double precision :: eta(0:1,1:2)
-  double precision :: normal(1:2) ! normal vector
-  double precision :: coeftmp(1:6,1:2,1:9) ! temporal coef for two points
+  double precision :: normal(1:2)                                 ! normal vector
+  double precision :: coeftmp(1:6,1:2,1:9)                        ! temporal coef for two points
 
   integer :: nointersections
 
@@ -916,7 +916,7 @@ subroutine calstep_discon( nx,nz, &
 
     enddo
  enddo
- ux(isx,isz) = ux(isx,isz) + fx(isx,isz)
+ ux(isx,isz) = ux(isx,isz) + fx(isx,isz)        ! Add source term
  uz(isx,isz) = uz(isx,isz) + fz(isx,isz)
 
  

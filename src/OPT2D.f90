@@ -21,37 +21,39 @@ program multipleSourcesOPT2D
   lmargin(2)=NPOINTS_PML
   rmargin(2)=NPOINTS_PML
 
-  call paramMultiReader
+  call paramMultiReader         ! Read variables from in-file
   
-  call vectorAllocate
+  call vectorAllocate           ! Allocate memory for all arrays
   
-  call disconConfig ! discontinuity configuration
+  call disconConfig             ! discontinuity configuration
   
-  call ReceiverSourcePositions 
+  call ReceiverSourcePositions  ! Create files with each source-receiver pairs in ../bin/inffile/
 
   !!!! for each source we calculate synthetics
   
   ! reading intermediate parameters (vp,vs,rho)
   
-  call calstruct( maxnx,maxnz,rhofile,nx,nz,rho )
-  call calstruct( maxnx,maxnz,vpfile, nx,nz,vp )
-  call calstruct( maxnx,maxnz,vsfile, nx,nz,vs )
+  call calstruct( maxnx,maxnz,rhofile,nx,nz,rho ) ! Read from file into array, rho
+  call calstruct( maxnx,maxnz,vpfile, nx,nz,vp )  ! Read from file into array, vp
+  call calstruct( maxnx,maxnz,vsfile, nx,nz,vs )  ! Read from file into array, vs
     
-  call freeConfig
+  call freeConfig               ! Free surface geometry
 
   ! calculate lamda and mu
-  call calstruct2(maxnx,maxnz,nx,nz,rho,vp,vs,lam,mu,liquidmarkers)
+  call calstruct2(maxnx,maxnz,nx,nz,rho,vp,vs,lam,mu,liquidmarkers) ! calculate mu, lam, liquidmarkers
   
   
   !write(12,*) rho
   !write(13,*) vp
   !write(14,*) vs
 
-
+  ! Extend all arrays by absorbing boundaries
   call calstructBC(maxnx, maxnz,nx,nz,rho,lam,mu,markers,liquidmarkers,zerodisplacement,lmargin,rmargin)
 
 
   ! Smoothed version of CONV/OPT operators
+  ! Make matrices (nx,nz) e1...f20 with dt2/rho * ... of precalculated differences
+  ! betw el parameters for stencil
 
   call cales( nx,nz,rho,lam,mu,dt,dx,dz, &
        e1, e2, e3, e4, e5, e6, e7, e8, &
@@ -183,7 +185,7 @@ program multipleSourcesOPT2D
      time(0)=t
      do it=0,nt
        
-        call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )
+        call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )  !Ricker source
         t=t+dt
         !write(13,*) t, fx(isx,isz),fz(isx,isz)
         

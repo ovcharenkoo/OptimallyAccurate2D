@@ -1,3 +1,4 @@
+! Explosive source???
 
 subroutine calf( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho,tp,ts,fx,fz )
   implicit none
@@ -28,6 +29,9 @@ subroutine calf( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho,tp,ts,fx,fz )
   
   return
 end subroutine calf
+
+
+! Ricker source
 
 subroutine calf2(nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho,f0,t0,fx,fz )
 

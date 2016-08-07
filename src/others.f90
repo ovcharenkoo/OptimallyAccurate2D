@@ -1,3 +1,5 @@
+! Reads parameters from file and creates output folders
+
 subroutine paramMultiReader
   use parameters
   implicit none
@@ -120,6 +122,9 @@ end subroutine paramFrechetReader
 
 
 
+! Creates file for each source with source and corresponding receivers information
+! saves in ../bin/inffile/
+
 subroutine ReceiverSourcePositions
 
   use parameters
@@ -172,6 +177,8 @@ end subroutine ReceiverSourcePositions
 
 
 
+! READ FROM file2d into array of size maxnx x maxnz
+
 subroutine calstruct( maxnx,maxnz,file2d, nx,nz,rho )
   implicit none
   integer maxnx,maxnz,nx,nz
@@ -194,7 +201,9 @@ subroutine calstruct( maxnx,maxnz,file2d, nx,nz,rho )
 end subroutine calstruct
 
 
-
+! Create mu and lam arrays of size nx+1 x nz+1
+! INPUT: rho, vp, vs arrays 
+! OUTPUT: mu, lam, liquidmarkers arrays
 
 subroutine calstruct2(maxnx,maxnz,nx,nz,rho,vp,vs,lam,mu,liquidmarkers)
   implicit none
@@ -226,8 +235,14 @@ subroutine calstruct2(maxnx,maxnz,nx,nz,rho,vp,vs,lam,mu,liquidmarkers)
 end subroutine calstruct2
   
 
-
-
+! Extend model with absorbing layers
+  !      L____NX____R
+  ! U   |  ________  |
+  ! NZ  | |        | |
+  !     | |________| |
+  ! D   |____________|
+! INPUT: nx,nz,lmargin,rmargin. Thikness of abs boundaries 
+! OUTPUT: rho,lam,mu,markers,liquidmarkers,zerodisplacement. Extended by these boundaries model
 
 subroutine calstructBC(maxnx,maxnz,nx,nz,rho,lam,mu,markers,liquidmarkers,zerodisplacement,lmargin,rmargin)
   implicit none
@@ -249,26 +264,38 @@ subroutine calstructBC(maxnx,maxnz,nx,nz,rho,lam,mu,markers,liquidmarkers,zerodi
   allocate(lliquidmarkers(1:maxnx+1,1:maxnz+1))
   allocate(zzerodisplacement(1:maxnx+1,1:maxnz+1))
 
-  mmu=0.d0
-  rrho=0.d0
-  mmarkers=0
-  lliquidmarkers=0
-  llam=0.d0
-  zzerodisplacement=0
+  mmu = 0.d0
+  rrho = 0.d0
+  mmarkers = 0
+  lliquidmarkers = 0
+  llam = 0.d0
+  zzerodisplacement = 0
 
 
-  llam(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))=lam(1:nx+1,1:nz+1)
-  mmu(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))=mu(1:nx+1,1:nz+1)
-  rrho(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))=rho(1:nx+1,1:nz+1)
+  ! Main body of rectangle
+  !    ____________
+  !   |  ________  |
+  !   | |    x   | |
+  !   | |________| |
+  !   |____________|
 
-  mmarkers(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))=markers(1:nx+1,1:nz+1)
-  lliquidmarkers(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))= &
+  llam(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) = lam(1:nx+1,1:nz+1)
+  mmu(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) = mu(1:nx+1,1:nz+1)
+  rrho(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) = rho(1:nx+1,1:nz+1)
+
+  mmarkers(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) = markers(1:nx+1,1:nz+1)
+  lliquidmarkers(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) =  &
        liquidmarkers(1:nx+1,1:nz+1)
-  zzerodisplacement(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2))= &
+  zzerodisplacement(1+lmargin(1):nx+1+lmargin(1),1+lmargin(2):nz+1+lmargin(2)) =  &
        zerodisplacement(1:nx+1,1:nz+1)
 
 
   ! 4 corners
+  !    ____________
+  !   |x ________ x|
+  !   | |        | |
+  !   | |________| |
+  !   |x__________x|
 
   llam(1:lmargin(1),1:lmargin(2))=lam(1,1)
   mmu(1:lmargin(1),1:lmargin(2))=mu(1,1)
@@ -367,7 +394,9 @@ subroutine calstructBC(maxnx,maxnz,nx,nz,rho,lam,mu,markers,liquidmarkers,zerodi
 end subroutine calstructBC
 
 
-
+! Fill up array with zeros
+! INPUT: nx,nz,ux
+! OUTPUT: ux(1:nx+1, 1:nx+1) = 0
 
 subroutine datainit( nx,nz,ux )
   
@@ -386,6 +415,8 @@ end subroutine datainit
 
 
 
+! All-in-one implementation of Cerjan boundaries
+! Returns attenuated wavefield 
 
 subroutine  compNRBC2(ux,ux1,ux2,uz,uz1,uz2, rrate, lmargin, rmargin,nnx,nnz)
 
@@ -438,6 +469,8 @@ subroutine  compNRBC2(ux,ux1,ux2,uz,uz1,uz2, rrate, lmargin, rmargin,nnx,nnz)
 end subroutine compNRBC2
 
 
+! Cerjan boundary attenuation coefficients
+! Returns value of decaying rate at each grid point
 
 subroutine  compNRBCpre(r,rrate, lmargin, rmargin,nnx,nnz)
 
