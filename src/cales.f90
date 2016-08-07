@@ -67,7 +67,7 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
            e16(ix,iz) = dt2 / rho(ix,iz) * lam(ix+2,iz) &
                 * ( -1.d0 ) / ( 1728.d0 * dxdz )
         else
-           e16(ix,iz) = 0.d0
+           e16(ix,iz) = 0.d0                        !if right boundary
         endif
         e17(ix,iz) = dt2 / rho(ix,iz) * mu(ix,iz-1) &
              * ( -5.d0 ) / ( 1728.d0 * dxdz )
@@ -79,7 +79,7 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
            e20(ix,iz) = dt2 / rho(ix,iz) * mu(ix,iz+2) &
                 * ( -1.d0 ) / ( 1728.d0 * dxdz )
         else
-           e20(ix,iz) = 0.d0
+           e20(ix,iz) = 0.d0                        !if top boundary
         endif
         f1(ix,iz) = dt2 / rho(ix,iz) &
              * ( mu(ix-1,iz) + mu(ix,iz) ) &
@@ -107,7 +107,7 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
            f13(ix,iz) = dt2 / rho(ix,iz) * mu(ix-2,iz) &
                 * (  1.d0 ) / ( 1728.d0 * dxdz )
         else
-           f13(ix,iz) = 0.d0
+           f13(ix,iz) = 0.d0                      !if left boundary
         endif
         f14(ix,iz) = dt2 / rho(ix,iz) * mu(ix-1,iz) &
              * ( -9.d0 ) / ( 1728.d0 * dxdz )
@@ -119,7 +119,7 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
            f17(ix,iz) = dt2 / rho(ix,iz) * lam(ix,iz-2) &
                 * (  1.d0 ) / ( 1728.d0 * dxdz )
         else
-           f17(ix,iz) = 0.d0
+           f17(ix,iz) = 0.d0                      !if bottom boundary
         endif
         f18(ix,iz) = dt2 / rho(ix,iz) * lam(ix,iz-1) &
              * ( -9.d0 ) / ( 1728.d0 * dxdz )

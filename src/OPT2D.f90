@@ -179,25 +179,27 @@ program multipleSourcesOPT2D
      fz=0.d0
      
 
- 
-     
-     t=0.d0
-     time(0)=t
-     do it=0,nt
+      !##########################################################################################
+      !What for?
+     ! t=0.d0
+     ! time(0)=t
+     ! do it=0,nt
        
-        call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )  !Ricker source
-        t=t+dt
-        !write(13,*) t, fx(isx,isz),fz(isx,isz)
+     !    call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )  !Ricker source
+     !    t=t+dt
+     !    !write(13,*) t, fx(isx,isz),fz(isx,isz)
         
-     enddo
+     ! enddo
      !print *, maxnz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0
      !stop
+
+      !##########################################################################################
 
      
      t = 0.d0
      !write(14,*) real(t),real(ux(nrx,nrz)),real(uz(nrx,nrz))
      do ir = 1,nReceiver
-        synx(0,ir)=ux(nrx(ir),nrz(ir))
+        synx(0,ir)=ux(nrx(ir),nrz(ir)) 
         synz(0,ir)=uz(nrx(ir),nrz(ir))
      enddo
 
@@ -362,6 +364,7 @@ program multipleSourcesOPT2D
                    nrx(1:nReceiver),nrz(1:nReceiver),nReceiver, &
                    NPOINTS_PML,USE_PML_XMIN,USE_PML_XMAX,USE_PML_YMIN,USE_PML_YMAX,2)
               
+              print *, 'Step ', it, '  ',t,' s'
               
            endif
            

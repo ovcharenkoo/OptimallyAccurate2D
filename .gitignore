@@ -1,3 +1,8 @@
+*pnm
+*dSYM
+*.inf
+*png
+*dat
 *.x
 *.o
 *~
