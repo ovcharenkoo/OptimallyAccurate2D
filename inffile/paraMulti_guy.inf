@@ -1,0 +1,16 @@
+guy
+../models/2d_guy.vp
+../models/2d_guy.vs
+../models/2d_guy.rho
+T optimise or conventional
+T video or not
+F writingStrain
+10 IT_DISPLAY
+301 150 1  iSourceStart, iSourceInverval, nSource
+1 izSourceStart
+1 30 21 iReceiverStart, iReceiverInterval, nReceiver
+1 izReceiverStart
+8000 600 160 nt nx nz
+2.5d-4 5.d-3 5.d-3 dt,dx,dz
+25.d0 5.d-2 f0, t0
+1 4 i1Source, i2Source

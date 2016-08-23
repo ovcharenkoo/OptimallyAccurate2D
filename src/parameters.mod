@@ -1,0 +1,498 @@
+GFORTRAN module version '6' created from modules.f90 on Tue Aug 23 19:10:11 2016
+MD5:2333d13800f1f0c0e006d39e69c317e9 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 '__convert_r4_r8' '(intrinsic)' '__convert_r4_r8' 1 ((PROCEDURE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION ELEMENTAL PURE)
+(REAL 8 0 0 REAL ()) 0 0 () () 2 () () () 0 0)
+3 'alpha_max_pml' 'parameters' 'alpha_max_pml' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL
+()) 0 0 () () 0 () () () 0 0)
+4 'cerjanrate' 'parameters' 'cerjanrate' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () (
+CONSTANT (REAL 8 0 0 REAL ()) 0 '0.624dd300000000@-2') () 0 () () () 0 0)
+5 'commandline' 'parameters' 'commandline' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '340'))) 0 0 () () 0 () () () 0 0)
+6 'courant_number' 'parameters' 'courant_number' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL
+()) 0 0 () () 0 () () () 0 0)
+7 'cp' 'parameters' 'cp' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+8 'dscr' 'parameters' 'dscr' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (3 0 DEFERRED () () () () () ()) 0 () () () 0 0)
+9 'dt' 'parameters' 'dt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+10 'dx' 'parameters' 'dx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+11 'dz' 'parameters' 'dz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+12 'e1' 'parameters' 'e1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+13 'e13' 'parameters' 'e13' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+14 'e14' 'parameters' 'e14' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+15 'e15' 'parameters' 'e15' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+16 'e16' 'parameters' 'e16' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+17 'e17' 'parameters' 'e17' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+18 'e18' 'parameters' 'e18' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+19 'e19' 'parameters' 'e19' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+20 'e2' 'parameters' 'e2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+21 'e20' 'parameters' 'e20' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+22 'e3' 'parameters' 'e3' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+23 'e4' 'parameters' 'e4' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+24 'e5' 'parameters' 'e5' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+25 'e6' 'parameters' 'e6' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+26 'e7' 'parameters' 'e7' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+27 'e8' 'parameters' 'e8' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+28 'ee12' 'parameters' 'ee12' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+29 'ee34' 'parameters' 'ee34' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+30 'ee56' 'parameters' 'ee56' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+31 'ee65' 'parameters' 'ee65' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+32 'ee78' 'parameters' 'ee78' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+33 'ee87' 'parameters' 'ee87' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+34 'epsilon_xx' 'parameters' 'epsilon_xx' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () ()
+() 0 0)
+35 'epsilon_xy' 'parameters' 'epsilon_xy' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () ()
+() 0 0)
+36 'epsilon_yy' 'parameters' 'epsilon_yy' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () ()
+() 0 0)
+37 'f0' 'parameters' 'f0' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+38 'f1' 'parameters' 'f1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+39 'f13' 'parameters' 'f13' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+40 'f14' 'parameters' 'f14' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+41 'f15' 'parameters' 'f15' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+42 'f16' 'parameters' 'f16' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+43 'f17' 'parameters' 'f17' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+44 'f18' 'parameters' 'f18' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+45 'f19' 'parameters' 'f19' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+46 'f2' 'parameters' 'f2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+47 'f20' 'parameters' 'f20' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+48 'f3' 'parameters' 'f3' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+49 'f4' 'parameters' 'f4' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+50 'f5' 'parameters' 'f5' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+51 'f6' 'parameters' 'f6' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+52 'f7' 'parameters' 'f7' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+53 'f8' 'parameters' 'f8' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+54 'ff12' 'parameters' 'ff12' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+55 'ff34' 'parameters' 'ff34' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+56 'ff56' 'parameters' 'ff56' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+57 'ff65' 'parameters' 'ff65' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+58 'ff78' 'parameters' 'ff78' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+59 'ff87' 'parameters' 'ff87' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+60 'filename' 'parameters' 'filename' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '120'))) 0 0 () () 0 () () () 0 0)
+61 'free' 'parameters' 'free' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+62 'fx' 'parameters' 'fx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+63 'fz' 'parameters' 'fz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+64 'head' 'parameters' 'head' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION) (INTEGER 2 0 0 INTEGER ()) 0 0 () (1 0
+EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER
+4 0 0 INTEGER ()) 0 '120')) 0 () () () 0 0)
+65 'iisx' 'parameters' 'iisx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+66 'iisz' 'parameters' 'iisz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+67 'ir' 'parameters' 'ir' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
+() 0 0)
+68 'ireceiver' 'parameters' 'ireceiver' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+69 'ireceiverinterval' 'parameters' 'ireceiverinterval' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+70 'ireceiverstart' 'parameters' 'ireceiverstart' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+71 'isource' 'parameters' 'isource' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+72 'isourceinterval' 'parameters' 'isourceinterval' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+73 'isourcestart' 'parameters' 'isourcestart' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+74 'ist' 'parameters' 'ist' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+75 'isx' 'parameters' 'isx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+76 'isz' 'parameters' 'isz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+77 'it' 'parameters' 'it' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+78 'it_display' 'parameters' 'it_display' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+79 'ix' 'parameters' 'ix' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+80 'iz' 'parameters' 'iz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+81 'izreceiverstart' 'parameters' 'izreceiverstart' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+82 'izsourcestart' 'parameters' 'izsourcestart' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+83 'j' 'parameters' 'j' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+84 'k_max_pml' 'parameters' 'k_max_pml' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () (
+CONSTANT (REAL 8 0 0 REAL ()) 0 '0.10000000000000@1') () 0 () () () 0 0)
+85 'kind' '(intrinsic)' 'kind' 1 ((PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 85 ()
+() () 0 0)
+86 'lam' 'parameters' 'lam' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+87 'lengthdiscon' 'parameters' 'lengthdiscon' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+88 'lengthfreesurface' 'parameters' 'lengthfreesurface' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0
+INTEGER ()) 0 0 () () 0 () () () 0 0)
+89 'liquidmarkers' 'parameters' 'liquidmarkers' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE
+DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 () (2 0 DEFERRED () () () ())
+0 () () () 0 0)
+90 'lmargin' 'parameters' 'lmargin' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+91 'markers' 'parameters' 'markers' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (INTEGER 4
+0 0 INTEGER ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+92 'maxnt' 'parameters' 'maxnt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
+() 0 0)
+93 'maxnx' 'parameters' 'maxnx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
+() 0 0)
+94 'maxnz' 'parameters' 'maxnz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () ()
+() 0 0)
+95 'modelname' 'parameters' 'modelname' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+96 'mu' 'parameters' 'mu' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+97 'ndiscon' 'parameters' 'ndiscon' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+98 'npoints_pml' 'parameters' 'npoints_pml' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
+99 'npower' 'parameters' 'npower' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () (
+CONSTANT (REAL 8 0 0 REAL ()) 0 '0.20000000000000@1') () 0 () () () 0 0)
+100 'nreceiver' 'parameters' 'nreceiver' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+101 'nrx' 'parameters' 'nrx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+102 'nrz' 'parameters' 'nrz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+103 'nsource' 'parameters' 'nsource' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+104 'nt' 'parameters' 'nt' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+105 'nx' 'parameters' 'nx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+106 'nz' 'parameters' 'nz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+107 'optimise' 'parameters' 'optimise' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0 LOGICAL ()) 0 0 ()
+() 0 () () () 0 0)
+108 'outfile' 'parameters' 'outfile' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '200'))) 0 0 () () 0 () () () 0 0)
+109 'parameters' 'parameters' 'parameters' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 0
+() () () 0 0)
+110 'pi' 'parameters' 'pi' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8
+0 0 REAL ()) 0 '0.3243f6a8885a30@1') () 0 () () () 0 0)
+111 'recl_size' 'parameters' 'recl_size' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0
+() () () 0 0)
+112 'rho' 'parameters' 'rho' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+113 'rhofile' 'parameters' 'rhofile' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+114 'rmargin' 'parameters' 'rmargin' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) (INTEGER 4 0 0 INTEGER
+()) 0 0 () (1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '2')) 0 () () () 0 0)
+115 'routine' 'parameters' 'routine' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+116 'singlestraindiagonal' 'parameters' 'singlestraindiagonal' 1 ((
+VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0
+ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ()) 0 0 () (2 0 DEFERRED () () ()
+()) 0 () () () 0 0)
+117 'singlestrainshear' 'parameters' 'singlestrainshear' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE
+DIMENSION) (REAL 4 0 0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () ()
+() 0 0)
+118 'snapux' 'parameters' 'snapux' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0
+0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+119 'snapuz' 'parameters' 'snapuz' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0
+0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+120 'synx' 'parameters' 'synx' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+121 'synz' 'parameters' 'synz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+122 't' 'parameters' 't' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+123 't0' 'parameters' 't0' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+124 'time' 'parameters' 'time' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 REAL ()) 0
+0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+125 'times' 'parameters' 'times' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+126 'tmpint' 'parameters' 'tmpint' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+() 0 () () () 0 0)
+127 'tmpsinglestrain' 'parameters' 'tmpsinglestrain' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE
+DIMENSION) (REAL 4 0 0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () ()
+() 0 0)
+128 'tmpvaluex' 'parameters' 'tmpvaluex' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0
+() () () 0 0)
+129 'tmpvaluez' 'parameters' 'tmpvaluez' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () () 0
+() () () 0 0)
+130 'total_energy_kinetic' 'parameters' 'total_energy_kinetic' 1 ((
+VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0
+ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0 DEFERRED () ())
+0 () () () 0 0)
+131 'total_energy_potential' 'parameters' 'total_energy_potential' 1 ((
+VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0
+ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 0 DEFERRED () ())
+0 () () () 0 0)
+132 'use_pml_xmax' 'parameters' 'use_pml_xmax' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0
+LOGICAL ()) 0 0 () (CONSTANT (LOGICAL 4 0 0 LOGICAL ()) 0 1) () 0 () ()
+() 0 0)
+133 'use_pml_xmin' 'parameters' 'use_pml_xmin' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0
+LOGICAL ()) 0 0 () (CONSTANT (LOGICAL 4 0 0 LOGICAL ()) 0 1) () 0 () ()
+() 0 0)
+134 'use_pml_ymax' 'parameters' 'use_pml_ymax' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0
+LOGICAL ()) 0 0 () (CONSTANT (LOGICAL 4 0 0 LOGICAL ()) 0 1) () 0 () ()
+() 0 0)
+135 'use_pml_ymin' 'parameters' 'use_pml_ymin' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0
+LOGICAL ()) 0 0 () (CONSTANT (LOGICAL 4 0 0 LOGICAL ()) 0 1) () 0 () ()
+() 0 0)
+136 'ux' 'parameters' 'ux' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+137 'ux1' 'parameters' 'ux1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+138 'ux2' 'parameters' 'ux2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+139 'uz' 'parameters' 'uz' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+140 'uz1' 'parameters' 'uz1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+141 'uz2' 'parameters' 'uz2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+142 'video' 'parameters' 'video' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 4 0
+0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+143 'videoornot' 'parameters' 'videoornot' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0 LOGICAL ()) 0 0 ()
+() 0 () () () 0 0)
+144 'vp' 'parameters' 'vp' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+145 'vpfile' 'parameters' 'vpfile' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+146 'vs' 'parameters' 'vs' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+147 'vsfile' 'parameters' 'vsfile' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '80'))) 0 0 () () 0 () () () 0 0)
+148 'weightbc' 'parameters' 'weightbc' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0
+0 REAL ()) 0 0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+149 'work' 'parameters' 'work' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0
+0 () (2 0 DEFERRED () () () ()) 0 () () () 0 0)
+150 'writingstrain' 'parameters' 'writingstrain' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (LOGICAL 4 0 0
+LOGICAL ()) 0 0 () () 0 () () () 0 0)
+151 'zero' 'parameters' 'zero' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8
+0 0 REAL ()) 0 '0.00000000000000@0') () 0 () () () 0 0)
+152 'zerodisplacement' 'parameters' 'zerodisplacement' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 ALLOCATABLE
+DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 () (2 0 DEFERRED () () () ())
+0 () () () 0 0)
+)
+
+('__convert_r4_r8' 0 2 'alpha_max_pml' 0 3 'cerjanrate' 0 4 'commandline'
+0 5 'courant_number' 0 6 'cp' 0 7 'dscr' 0 8 'dt' 0 9 'dx' 0 10 'dz' 0
+11 'e1' 0 12 'e13' 0 13 'e14' 0 14 'e15' 0 15 'e16' 0 16 'e17' 0 17 'e18'
+0 18 'e19' 0 19 'e2' 0 20 'e20' 0 21 'e3' 0 22 'e4' 0 23 'e5' 0 24 'e6'
+0 25 'e7' 0 26 'e8' 0 27 'ee12' 0 28 'ee34' 0 29 'ee56' 0 30 'ee65' 0 31
+'ee78' 0 32 'ee87' 0 33 'epsilon_xx' 0 34 'epsilon_xy' 0 35 'epsilon_yy'
+0 36 'f0' 0 37 'f1' 0 38 'f13' 0 39 'f14' 0 40 'f15' 0 41 'f16' 0 42 'f17'
+0 43 'f18' 0 44 'f19' 0 45 'f2' 0 46 'f20' 0 47 'f3' 0 48 'f4' 0 49 'f5'
+0 50 'f6' 0 51 'f7' 0 52 'f8' 0 53 'ff12' 0 54 'ff34' 0 55 'ff56' 0 56
+'ff65' 0 57 'ff78' 0 58 'ff87' 0 59 'filename' 0 60 'free' 0 61 'fx' 0
+62 'fz' 0 63 'head' 0 64 'iisx' 0 65 'iisz' 0 66 'ir' 0 67 'ireceiver' 0
+68 'ireceiverinterval' 0 69 'ireceiverstart' 0 70 'isource' 0 71
+'isourceinterval' 0 72 'isourcestart' 0 73 'ist' 0 74 'isx' 0 75 'isz' 0
+76 'it' 0 77 'it_display' 0 78 'ix' 0 79 'iz' 0 80 'izreceiverstart' 0
+81 'izsourcestart' 0 82 'j' 0 83 'k_max_pml' 0 84 'kind' 0 85 'lam' 0 86
+'lengthdiscon' 0 87 'lengthfreesurface' 0 88 'liquidmarkers' 0 89
+'lmargin' 0 90 'markers' 0 91 'maxnt' 0 92 'maxnx' 0 93 'maxnz' 0 94
+'modelname' 0 95 'mu' 0 96 'ndiscon' 0 97 'npoints_pml' 0 98 'npower' 0
+99 'nreceiver' 0 100 'nrx' 0 101 'nrz' 0 102 'nsource' 0 103 'nt' 0 104
+'nx' 0 105 'nz' 0 106 'optimise' 0 107 'outfile' 0 108 'parameters' 0
+109 'pi' 0 110 'recl_size' 0 111 'rho' 0 112 'rhofile' 0 113 'rmargin' 0
+114 'routine' 0 115 'singlestraindiagonal' 0 116 'singlestrainshear' 0
+117 'snapux' 0 118 'snapuz' 0 119 'synx' 0 120 'synz' 0 121 't' 0 122 't0'
+0 123 'time' 0 124 'times' 0 125 'tmpint' 0 126 'tmpsinglestrain' 0 127
+'tmpvaluex' 0 128 'tmpvaluez' 0 129 'total_energy_kinetic' 0 130
+'total_energy_potential' 0 131 'use_pml_xmax' 0 132 'use_pml_xmin' 0 133
+'use_pml_ymax' 0 134 'use_pml_ymin' 0 135 'ux' 0 136 'ux1' 0 137 'ux2' 0
+138 'uz' 0 139 'uz1' 0 140 'uz2' 0 141 'video' 0 142 'videoornot' 0 143
+'vp' 0 144 'vpfile' 0 145 'vs' 0 146 'vsfile' 0 147 'weightbc' 0 148
+'work' 0 149 'writingstrain' 0 150 'zero' 0 151 'zerodisplacement' 0 152)

@@ -1,0 +1,15 @@
+*.OPT*
+*pnm
+*dSYM
+
+*png
+*dat
+*.x
+*.o
+*~
+*DS
+
+bin/strains/
+bin/synthetics/
+bin/snapshots/
+/bin/inffile/

@@ -1,0 +1,22 @@
+c grids
+        2000         399         199
+   2.0000000000000000E-003   2.0000000000000000E-002   2.0000000000000000E-002
+c modelname
+gizainverse_nodiscon
+2d_gizainverse.vp
+2d_gizainverse.vs
+2d_gizainverse.rho
+c source position (in grids) 
+         100         130
+c source time function (Ricker wavelet)
+   6.5000000000000000       0.20000000000000001     
+c receivers information
+           7
+         100           1
+         130           1
+         160           1
+         190           1
+         220           1
+         250           1
+         280           1
+end

@@ -1,0 +1,22 @@
+c grids
+        4000         798         398
+   1.0000000000000000E-003   1.0000000000000000E-002   1.0000000000000000E-002
+c modelname
+ginv3tim
+2d_ginv3tim.vp
+2d_ginv3tim.vs
+2d_ginv3tim.rho
+c source position (in grids) 
+         199         199
+c source time function (Ricker wavelet)
+   6.5000000000000000       0.20000000000000001     
+c receivers information
+           7
+         199         259
+         259         259
+         319         259
+         379         259
+         439         259
+         499         259
+         559         259
+end

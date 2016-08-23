@@ -1,0 +1,16 @@
+3layer
+../models/2d_3layer.vp
+../models/2d_3layer.vs
+../models/2d_3layer.rho
+F optimise or conventional
+T video or not
+T writingStrain
+10 IT_DISPLAY
+20 60 7  iSourceStart, iSourceInverval, nSource
+1 izSourceStart
+20 20 20 iReceiverStart, iReceiverInterval, nReceiver
+1 izReceiverStart
+2000 399 199 nt nx nz
+2.d-3 2.d-2 2.d-2 dt,dx,dz
+6.d0 2.d-1 f0, t0
+1 4 i1Source, i2Source
