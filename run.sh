@@ -6,6 +6,7 @@
 
 echo "RUN INFO:"
 echo "`date`"
+echo "`pwd`"
 currentdir=`pwd`
 
 # links executables
@@ -13,12 +14,16 @@ currentdir=`pwd`
 # ln -s ./bin/multiOPT.x
 
 cd ./bin
+# echo "`pwd`"
+
 rm -rf inffile snapshots strains synthetics videos
 
 #run binary
 ./multiOPT.x < ../inffile/paraMulti.inf
 
 cd ..
+# echo "`pwd`"
+
 # echo
 # echo "(will take a few minutes)"
 # echo

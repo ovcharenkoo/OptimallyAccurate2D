@@ -32,9 +32,16 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
   dx2 = dx * dx
   dz2 = dz * dz
   dxdz = dx * dz
-  
+ 
+
+  ! operators for four ending points
+
+
+
   do iz=2,nz
      do ix=2,nx
+      
+        ! DX
         e1(ix,iz) = dt2 / rho(ix,iz) &
              * ( ( lam(ix-1,iz) + lam(ix,iz) ) &
              + 2.d0 * ( mu(ix-1,iz) + mu(ix,iz) ) ) &
@@ -43,12 +50,16 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
              * ( ( lam(ix,iz) + lam(ix+1,iz) ) &
              + 2.d0 * ( mu(ix,iz) + mu(ix+1,iz) ) ) &
              / ( 2.d0 * dx2 )
+
+        ! DZ
         e3(ix,iz) = dt2 / rho(ix,iz) &
              * ( mu(ix,iz-1) + mu(ix,iz) ) &
              / ( 2.d0 * dz2 )
         e4(ix,iz) = dt2 / rho(ix,iz) &
              * ( mu(ix,iz) + mu(ix,iz+1) ) &
              / ( 2.d0 * dz2 )
+
+        ! DXDZ
         e5(ix,iz) = dt2 / rho(ix,iz) * lam(ix-1,iz) &
              / ( 4.d0 * dxdz )
         e6(ix,iz) = dt2 / rho(ix,iz) * lam(ix+1,iz) &
@@ -81,12 +92,16 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
         else
            e20(ix,iz) = 0.d0                        !if top boundary
         endif
+
+        ! DX
         f1(ix,iz) = dt2 / rho(ix,iz) &
              * ( mu(ix-1,iz) + mu(ix,iz) ) &
              / ( 2.d0 * dx2 )
         f2(ix,iz) = dt2 / rho(ix,iz) &
              * ( mu(ix,iz) + mu(ix+1,iz) ) &
              / ( 2.d0 * dx2 )
+
+        ! DZ
         f3(ix,iz) = dt2 / rho(ix,iz) &
              * ( ( lam(ix,iz-1) + lam(ix,iz) ) &
              + 2.d0 * ( mu(ix,iz-1) + mu(ix,iz) ) ) &
@@ -95,6 +110,8 @@ subroutine cales( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
              * ( ( lam(ix,iz) + lam(ix,iz+1) ) &
            + 2.d0 * ( mu(ix,iz) + mu(ix,iz+1) ) ) &
            / ( 2.d0 * dz2 )
+
+        ! DXDZ
         f5(ix,iz) = dt2 / rho(ix,iz) * mu(ix-1,iz) &
              / ( 4.d0 * dxdz )
         f6(ix,iz) = dt2 / rho(ix,iz) * mu(ix+1,iz) &

@@ -3,9 +3,9 @@ start
 ../models/2d_start.vs
 ../models/2d_start.rho
 T optimise or conventional
-T video or not
-T writingStrain
-10 IT_DISPLAY
+F video or not
+F writingStrain
+50 IT_DISPLAY
 20 20 20  iSourceStart, iSourceInverval, nSource
 1 izSourceStart
 20 20 20 iReceiverStart, iReceiverInterval, nReceiver

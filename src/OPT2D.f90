@@ -5,7 +5,7 @@ program multipleSourcesOPT2D
   ! 2D PSV heterogeneous medium
   ! CPML or Cerjan boundary conditions
   !
-  !					originally from 1997.6  N. Takeuchi
+  !					                            originally from 1997.6  N. Takeuchi
   !                                                     2016.5. N. Fuji
   !                         discon operators (matlab) : 2016.5. O. Ovcharenko
   !                                         colorbars : 2016.5. K. Okubo
@@ -31,38 +31,34 @@ program multipleSourcesOPT2D
 
   !!!! for each source we calculate synthetics
   
-  ! reading intermediate parameters (vp,vs,rho)
-  
   call calstruct( maxnx,maxnz,rhofile,nx,nz,rho ) ! Read from file into array, rho
+
   call calstruct( maxnx,maxnz,vpfile, nx,nz,vp )  ! Read from file into array, vp
+
   call calstruct( maxnx,maxnz,vsfile, nx,nz,vs )  ! Read from file into array, vs
     
-  call freeConfig               ! Free surface geometry
+  call freeConfig                                 ! Free surface geometry
 
   ! calculate lamda and mu
   call calstruct2(maxnx,maxnz,nx,nz,rho,vp,vs,lam,mu,liquidmarkers) ! calculate mu, lam, liquidmarkers
-  
-  
-  !write(12,*) rho
-  !write(13,*) vp
-  !write(14,*) vs
 
   ! Extend all arrays by absorbing boundaries
   call calstructBC(maxnx, maxnz,nx,nz,rho,lam,mu,markers,liquidmarkers,zerodisplacement,lmargin,rmargin)
-
 
   ! Smoothed version of CONV/OPT operators
   ! Make matrices (nx,nz) e1...f20 with dt2/rho * ... of precalculated differences
   ! betw el parameters for stencil
 
   call cales( nx,nz,rho,lam,mu,dt,dx,dz, &
-       e1, e2, e3, e4, e5, e6, e7, e8, &
-       e13,e14,e15,e16,e17,e18,e19,e20, &
-       f1, f2, f3, f4, f5, f6, f7, f8, &
-       f13,f14,f15,f16,f17,f18,f19,f20 )
+              e1, e2, e3, e4, e5, e6, e7, e8, &
+              e13,e14,e15,e16,e17,e18,e19,e20, &
+              f1, f2, f3, f4, f5, f6, f7, f8, &
+              f13,f14,f15,f16,f17,f18,f19,f20 )
 
-  ! discontinuities
-  
+  ! DISCONTINUTIES
+  ! Additional coefficients for FD stencils 
+
+  ! Predictor
   ee12 = 0.d0
   ee34 = 0.d0
   ee56 = 0.d0
@@ -70,51 +66,52 @@ program multipleSourcesOPT2D
   ee78 = 0.d0
   ee87 = 0.d0
 
+  ! Corrector
   ff12 = 0.d0
   ff34 = 0.d0
   ff56 = 0.d0
   ff65 = 0.d0
   ff78 = 0.d0
-  ff87 = 0.d0
-  
+  ff87 = 0.d0 
+
+  !If there are discontinuities then execute the following code
   if(nDiscon.ne.0) then
- 
-     ! changing dscr by putting lmargin(1) and (2)
-     tmpvaluex=dble(lmargin(1))*dx
-     tmpvaluez=dble(lmargin(2))*dz
-     do ix=1,nDiscon
-        do iz=1,lengthDiscon
-           dscr(1,iz,ix)=dscr(1,iz,ix)+tmpvaluex
-           dscr(2,iz,ix)=dscr(2,iz,ix)+tmpvaluez
-        enddo
-     enddo
+    print*, nDiscon
+    ! changing dscr by putting lmargin(1) and (2)
+    tmpvaluex=dble(lmargin(1))*dx
+    tmpvaluez=dble(lmargin(2))*dz
+    do ix=1,nDiscon
+      do iz=1,lengthDiscon
+        dscr(1,iz,ix)=dscr(1,iz,ix)+tmpvaluex
+        dscr(2,iz,ix)=dscr(2,iz,ix)+tmpvaluez
+      enddo
+    enddo
           
      call cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
-     e13,e14,e15,e16,e17,e18,e19,e20, &
-     f1, f2, f3, f4, f5, f6, f7, f8, &
-     f13,f14,f15,f16,f17,f18,f19,f20, & 
-     ! hereafter are new variables for cales_discon
-     ee12,ee34,ee56,ee65,ee78,ee87, &
-     ff12,ff34,ff56,ff65,ff78,ff87, &
-     markers,nDiscon,lengthDiscon,dscr)
+                        e13,e14,e15,e16,e17,e18,e19,e20, &
+                        f1, f2, f3, f4, f5, f6, f7, f8, &
+                        f13,f14,f15,f16,f17,f18,f19,f20, & 
+                        ! hereafter are new variables for cales_discon
+                        ee12,ee34,ee56,ee65,ee78,ee87, &
+                        ff12,ff34,ff56,ff65,ff78,ff87, &
+                        markers,nDiscon,lengthDiscon,dscr)
 
   endif
   
-  if(lengthFreeSurface.ne.0) then
-          
+
+
+  ! FREE SURFACE
+  ! if there is a free surface then execute the following code
+  if(lengthFreeSurface.ne.0) then         
      call cales_free( maxnx,nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
-     e13,e14,e15,e16,e17,e18,e19,e20, &
-     f1, f2, f3, f4, f5, f6, f7, f8, &
-     f13,f14,f15,f16,f17,f18,f19,f20, & 
-     ! hereafter are new variables for cales_discon
-     ee12,ee34,ee56,ee65,ee78,ee87, &
-     ff12,ff34,ff56,ff65,ff78,ff87, &
-     zerodisplacement,lengthFreeSurface,free)
-
-     
+                      e13,e14,e15,e16,e17,e18,e19,e20, &
+                      f1, f2, f3, f4, f5, f6, f7, f8, &
+                      f13,f14,f15,f16,f17,f18,f19,f20, & 
+                      ! hereafter are new variables for cales_discon
+                      ee12,ee34,ee56,ee65,ee78,ee87, &
+                      ff12,ff34,ff56,ff65,ff78,ff87, &
+                      zerodisplacement,lengthFreeSurface,free)   
   endif
-
-
 
   if(lengthFreeSurface.ne.0) then
      ! changing free by putting lmargin(1) and (2)
@@ -122,92 +119,83 @@ program multipleSourcesOPT2D
      tmpvaluez=dble(lmargin(2))*dz
      
      do ix=1,lengthFreeSurface
-           free(1,ix)=free(1,ix)+tmpvaluex
-           free(2,ix)=free(2,ix)+tmpvaluez           
+          free(1,ix)=free(1,ix)+tmpvaluex
+          free(2,ix)=free(2,ix)+tmpvaluez           
      enddo
   endif
 
-  ! for Cerjan absorbing boundary
 
 
+  ! CERJAN ABSORBING BOUNDARY
   weightBC=1.d0
-     
   call compNRBCpre(weightBC(1:nx+1,1:nz+1),CerjanRate,lmargin,rmargin,nx+1,nz+1)
   
-
+  ! Move receivers by thicknesses of PMLs
   do ir= 1, nReceiver
-     nrx(ir)=nrx(ir)+lmargin(1)
-     nrz(ir)=nrz(ir)+lmargin(2)
+    nrx(ir)=nrx(ir)+lmargin(1)
+    nrz(ir)=nrz(ir)+lmargin(2)
   enddo
-  
 
-  do iSource = 1, nSource
+
+  do iSource = 1, nSource    
+    !Move sources by thicknesses of PMLs
+    isx=iisx(iSource)+lmargin(1)
+    isz=iisz(iSource)+lmargin(2)
+     
+    ist=nt/4    
+
+    ! for video (without boundary)
+    recl_size=(nx+1)*(nz+1)*kind(0e0)
     
-     isx=iisx(iSource)+lmargin(1)
-     isz=iisz(iSource)+lmargin(2)
      
-     ist=nt/4
-    
+    ALPHA_MAX_PML = 2.d0*PI*(f0/2.d0) ! from Festa and Vilotte
+     
+    ! Initializing the data
 
-     ! for video (without boundary)
-     recl_size=(nx+1)*(nz+1)*kind(0e0)
-    
-     
-     ALPHA_MAX_PML = 2.d0*PI*(f0/2.d0) ! from Festa and Vilotte
-     
-     ! Initializing the data
+    ux=0.d0
+    uz=0.d0
+    ux1=0.d0
+    uz1=0.d0
+    ux2=0.d0
+    uz2=0.d0
+    work=0.d0   
 
-     ux=0.d0
-     uz=0.d0
-     ux1=0.d0
-     uz1=0.d0
-     ux2=0.d0
-     uz2=0.d0
-     work=0.d0
-     
+    ! R. Courant et K. O. Friedrichs et H. Lewy (1928)
+    cp=maxval(vp)
+    Courant_number = cp * dt * sqrt(1.d0/dx**2 + 1.d0/dz**2)
+    print *, 'Courant number is', Courant_number     
 
-     
- 
-     ! R. Courant et K. O. Friedrichs et H. Lewy (1928)
-     cp=maxval(vp)
-     Courant_number = cp * dt * sqrt(1.d0/dx**2 + 1.d0/dz**2)
-     print *, 'Courant number is', Courant_number
-     
-     
+    !initiate source point force
+    fx=0.d0
+    fz=0.d0
 
-     fx=0.d0
-     fz=0.d0
-     
+    !##########################################################################################
+    !What for?
+    ! t=0.d0
+    ! time(0)=t
+    ! do it=0,nt
 
-      !##########################################################################################
-      !What for?
-     ! t=0.d0
-     ! time(0)=t
-     ! do it=0,nt
-       
-     !    call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )  !Ricker source
-     !    t=t+dt
-     !    !write(13,*) t, fx(isx,isz),fz(isx,isz)
-        
-     ! enddo
-     !print *, maxnz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0
-     !stop
+    !    call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )  !Ricker source
+    !    t=t+dt
+    !    !write(13,*) t, fx(isx,isz),fz(isx,isz)
 
-      !##########################################################################################
+    ! enddo
+    !print *, maxnz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0
+    !stop
 
-     
-     t = 0.d0
-     !write(14,*) real(t),real(ux(nrx,nrz)),real(uz(nrx,nrz))
-     do ir = 1,nReceiver
-        synx(0,ir)=ux(nrx(ir),nrz(ir)) 
-        synz(0,ir)=uz(nrx(ir),nrz(ir))
-     enddo
+    !##########################################################################################
 
-     
+    ! t = 0.d0
+    ! !write(14,*) real(t),real(ux(nrx,nrz)),real(uz(nrx,nrz))
+    ! do ir = 1,nReceiver
+    !   synx(0,ir)=ux(nrx(ir),nrz(ir)) 
+    !   synz(0,ir)=uz(nrx(ir),nrz(ir))
+    ! enddo
+
 
      do it=0,nt
       
-        call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )
+        call calf2( nx,nz,it,t,ist,isx,isz,dt,dx,dz,rho(isx,isz),f0,t0,fx,fz )    ! Source
         ! evaluating the next step
         
         !if(nDiscon.eq.0) then

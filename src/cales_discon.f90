@@ -2,7 +2,8 @@
 subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e8,&
      e13,e14,e15,e16,e17,e18,e19,e20, &
      f1, f2, f3, f4, f5, f6, f7, f8, &
-     f13,f14,f15,f16,f17,f18,f19,f20, & ! hereafter are new variables for cales_discon
+     f13,f14,f15,f16,f17,f18,f19,f20, & 
+     ! hereafter are new variables for cales_discon
      ee12,ee34,ee56,ee65,ee78,ee87, &
      ff12,ff34,ff56,ff65,ff78,ff87, &
      markers,nDiscon,lengthDiscon,dscr)
@@ -90,6 +91,14 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
   ctr = 0 
 
 
+
+
+
+
+!===================================================================================================================
+! GO OVER NINE POINT STENCIL
+!===================================================================================================================
+
   ! modified operators for discontinuities
   
   do iz=2,nz
@@ -106,6 +115,10 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
            nointersections = 1
 
 
+
+           !                                      . . x
+           !                                      . o .
+           !                                      . . .
            ! ctr = 1 right-top ix+1,iz+1
            ctr = 1
            distan2 = dDiagonal2
@@ -132,7 +145,12 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
            call MizutaniIso(coeftmp(1:6,1:2,ctr),rho(ix,iz),rho(ix+ik(ctr),iz+jk(ctr)), &
                 lam(ix,iz),lam(ix+ik(ctr),iz+jk(ctr)), &
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal)       
-           
+                      
+
+
+           !                                      . . .
+           !                                      . o x
+           !                                      . . .
            ! ctr = 2 right-centre ix+1,iz
            ctr = 2
            distan2 = dx2
@@ -155,12 +173,15 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
               eta(1,2) = 1.d0-eta(0,2)                    
            endif
            
-           call s(coeftmp(1:6,1:2,ctr),rho(ix,iz),rho(ix+ik(ctr),iz+jk(ctr)), &
+           call MizutaniIso(coeftmp(1:6,1:2,ctr),rho(ix,iz),rho(ix+ik(ctr),iz+jk(ctr)), &
                 lam(ix,iz),lam(ix+ik(ctr),iz+jk(ctr)), &
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
            
+           
 
-
+           !                                      . . .
+           !                                      . o .
+           !                                      . . x
            ! ctr = 3 right-bottom ix+1,iz-1
            ctr = 3
            distan2 = dDiagonal2
@@ -185,15 +206,12 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
            call MizutaniIso(coeftmp(1:6,1:2,ctr),rho(ix,iz),rho(ix+ik(ctr),iz+jk(ctr)), &
                 lam(ix,iz),lam(ix+ik(ctr),iz+jk(ctr)), &
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
-           
+          
 
 
-
-           
-
-
-
-           
+           !                                      . x .
+           !                                      . o .
+           !                                      . . .
            ! ctr = 4 centre-top ix,iz+1
            ctr = 4
            distan2 = dz2
@@ -221,8 +239,10 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
 
 
-           
-           
+            
+           !                                      . . .
+           !                                      . x .
+           !                                      . . .          
            ! ctr = 5 centre ix,iz == the same point
            ctr = 5
            distan2 = 0.d0
@@ -233,6 +253,11 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
            coeftmp(1,1,ctr) = 1.d0
            coeftmp(1,2,ctr) = 1.d0
            
+
+
+           !                                      . . .
+           !                                      . o .
+           !                                      . x .
            ! ctr = 6 centre-bottom ix,iz-1
            ctr = 6
            distan2 = dz2
@@ -257,15 +282,12 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
            call MizutaniIso(coeftmp(1:6,1:2,ctr),rho(ix,iz),rho(ix+ik(ctr),iz+jk(ctr)), &
                 lam(ix,iz),lam(ix+ik(ctr),iz+jk(ctr)), &
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
-
-
-
-
-
-
-
            
-           
+
+
+           !                                      x . .
+           !                                      . o .
+           !                                      . . .
            ! ctr = 7 left-top ix-1,iz+1
            ctr = 7
            distan2 = dDiagonal2
@@ -293,7 +315,10 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
 
 
-            
+           
+           !                                      . . .
+           !                                      x o .
+           !                                      . . .            
            ! ctr = 8 left-centre ix-1,iz
            ctr = 8
            distan2 = dx2
@@ -322,7 +347,9 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
 
            
            
-            
+           !                                      . . .
+           !                                      . o .
+           !                                      x . .                       
            ! ctr = 9 left-bottom ix-1,iz-1
            ctr = 9
            distan2 = dDiagonal2
@@ -350,6 +377,16 @@ subroutine cales_discon( nx,nz,rho,lam,mu,dt,dx,dz,e1, e2, e3, e4, e5, e6, e7, e
                 mu(ix,iz),mu(ix+ik(ctr),iz+jk(ctr)),ik(ctr),jk(ctr),dx,dz,eta,normal) 
 
         
+
+
+
+
+
+
+        
+!===================================================================================================================
+!
+!===================================================================================================================
 
            ! Now we have all the elements for coeftmp(1:6,1:2,1:9) 
           
@@ -710,11 +747,11 @@ end subroutine cales_discon
 
 subroutine findNearestPoint(x1,z1,x2,z2,distan2,xi,zi,eta,lengthDiscon,nDiscon,iInterSection,err,dscr)
   implicit none
-  double precision :: x1,z1,x2,z2,distan2
+  double precision :: x1,z1,x2,z2,distan2                         ! initial, final points, distances to each point of interface
   double precision :: xi, zi,eta(0:1,1:2)
   
-  integer :: nDiscon,lengthDiscon ! number of discontinuities
-  double precision :: dscr(1:2,1:lengthDiscon,1:nDiscon)
+  integer :: nDiscon,lengthDiscon                                 ! number of discontinuities
+  double precision :: dscr(1:2,1:lengthDiscon,1:nDiscon)          ! Discretized discontinuities (x:z, 1:num_of_points, 1:number_of_discontinuities)
   double precision :: distance2(1:lengthDiscon,1:nDiscon)
   integer :: iLengthDiscon,iDiscon,iInterSection(1:2),err
   double precision :: x,z
@@ -725,9 +762,9 @@ subroutine findNearestPoint(x1,z1,x2,z2,distan2,xi,zi,eta,lengthDiscon,nDiscon,i
   distance2=0.d0
 
   do iDiscon = 1,nDiscon
-     do iLengthDiscon = 1,lengthDiscon
-        
-        x=dscr(1,iLengthDiscon,iDiscon)
+     do iLengthDiscon = 1,lengthDiscon                            ! for each point of discontinuity calculate 
+                                                                  ! (x-x1)^2 + (z-z1)^2 + (x-x2)^2 + (z-z2)^2
+        x=dscr(1,iLengthDiscon,iDiscon)                           ! that represents x1 --------> xi <--------x2
         z=dscr(2,iLengthDiscon,iDiscon)
         
         distance2(iLengthDiscon,iDiscon)=(x-x1)*(x-x1)+(z-z1)*(z-z1)+(x-x2)*(x-x2)+(z-z2)*(z-z2)
@@ -736,7 +773,7 @@ subroutine findNearestPoint(x1,z1,x2,z2,distan2,xi,zi,eta,lengthDiscon,nDiscon,i
   enddo
 
 
-  iInterSection(1:2)=minloc(distance2)
+  iInterSection(1:2)=minloc(distance2)                            ! find the least value and say that it means that this point is the nearest
   
   if(distance2(iInterSection(1),iInterSection(2))>distan2) then
      err = 1
@@ -829,7 +866,48 @@ subroutine NormalFinder(normal,lengthDiscon,nDiscon,iInterSection,dscr)
 end subroutine NormalFinder
   
   
+subroutine set_boundary_operators(ix, iz, nx, nz, dt, dxdz, lam, mu, rho, e16, e20, f13, f17)
+  implicit none
+  integer :: ix,iz,nx,nz
+  double precision e16(nx+1,nz+1),e20(nx+1,nz+1)
+  double precision f13(nx+1,nz+1),f17(nx+1,nz+1)
+  double precision lam(nx+1,nz+1),mu(nx+1,nz+1), rho(nx+1,nz+1)
+  double precision dt, dt2, dxdz
+
+  dt2=dt**2
   
+  if ( ix+2.le.nx+1 ) then
+    e16(ix,iz) = dt2 / rho(ix,iz) * lam(ix+2,iz) &
+    * ( -1.d0 ) / ( 1728.d0 * dxdz )
+  else
+    e16(ix,iz) = 0.d0                        !if right boundary
+  endif
+
+
+  if ( iz+2.le.nz+1) then
+    e20(ix,iz) = dt2 / rho(ix,iz) * mu(ix,iz+2) &
+      * ( -1.d0 ) / ( 1728.d0 * dxdz )
+  else
+    e20(ix,iz) = 0.d0                        !if top boundary
+  endif
+
+
+  if ( ix-2.ge.1 ) then
+    f13(ix,iz) = dt2 / rho(ix,iz) * mu(ix-2,iz) &
+    * (  1.d0 ) / ( 1728.d0 * dxdz )
+  else
+    f13(ix,iz) = 0.d0                      !if left boundary
+  endif
+
+
+  if ( iz-2.ge.1 ) then
+    f17(ix,iz) = dt2 / rho(ix,iz) * lam(ix,iz-2) &
+    * (  1.d0 ) / ( 1728.d0 * dxdz )
+  else
+    f17(ix,iz) = 0.d0                      !if bottom boundary
+  endif
+
+end subroutine set_boundary_operators
   
 
   
@@ -1101,4 +1179,3 @@ subroutine calstep_discon( nx,nz, &
  
  return
 end subroutine calstep_discon
-	

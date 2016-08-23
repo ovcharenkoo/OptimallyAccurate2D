@@ -1,9 +1,15 @@
+*.OPT*
 *pnm
 *dSYM
-*.inf
+
 *png
 *dat
 *.x
 *.o
 *~
-.DS*
+*DS
+
+*strains*
+*synthetics*
+*snapshots*
+*/bin/inffile*

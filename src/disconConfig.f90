@@ -10,7 +10,7 @@ subroutine disconConfig
   nDiscon = 0
 
 
-  if(1.eq.0) then
+  if(0.eq.0) then
   
   nDiscon = 1
   lengthDiscon = 40*nx+1
